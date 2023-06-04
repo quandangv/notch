@@ -5,7 +5,7 @@
 Programming languages typically represent expressions in the infix notation. An expression such as `(a+b)^2` put the operator between the operands, which leads to the following problems:
 - **Brackets and the concept of precedence** had to be invented just to denote the order of execution
 - **Code must be chopped up into commands** so that we can write it in the order of execution. This is because the order of execution in infix notation is determined by precedence and brackets, in conflict with the fact that we expect the order of execution to be the order that commands appear in code
-- **Unary and binary are the only types of operator possible**: Operators with more arguments must be denoted as functions, which have an entirely different notation
+- **Unary and binary are the only types of operator possible**: Operators with more arguments such as ternary operators (with 3 arguments) must be denoted as functions, which have an entirely different notation
 
 In the early stages of NeoRune, I found that the postfix notation (a.k.a. the Reverse Polish Notation) is a notation much more suitable for programming than infix. Here are example comparisons between code written in the infix (JavaScript) and postfix (NeoRune) notation:
 ```
@@ -19,7 +19,9 @@ a b + c d + *
 a b a= b=
 array 2 4 //
 ```
-In the first example, the order of the operators in the script is the same as the order of execution. The script doesn't have to use any bracket or define any operator precedence. Thanks to this natural way of coding, we can seamlessly swap the two variables without using any temporary in the second example. In the third example, we defined `//` to be the slice operator for arrays; it's a ternary operator, taking 3 arguments as inputs, instead of having to phrase it as a function. It should also be noted that in postfix notation, spaces between the notation "words" can not be omitted.
+In the first example, the order of the operators in the script is the same as the order of execution, so the script doesn't have to use any bracket or define any operator precedence. Thanks to this natural way of coding, we can seamlessly swap the two variables without using any temporary in the second example. In the third example, we defined `//` to be the ternary slice operator for arrays, instead of having to phrase it as a function. It should also be noted that in postfix notation, spaces between the notation "words" can not be omitted.
+
+### Features & Examples
 
 Additionally, I have added some notations to make NeoRune code more concise, such as the comma `,` prefix, which would cause the operator to retain its first argument on the computation stack for later use. With that in mind, here are some expressions represented in NeoRune:
 ```
